@@ -31,9 +31,7 @@ abcd
 
 <p style='text-align: justify'>
 Una vez el usuario digita los números a los que desea calcular su factorización prima, procede a realizar la factorización de cada uno de los números ingresados, almacenando en memoria los números primos que corresponden a dicho número.
-</p>
 
-<p style='text-align: justify'>
 Finalmente, el programa imprime en la salida estándar una lista con los números ingresados y su respectiva factorización prima de la siguiente forma:
 </p>
 
@@ -165,5 +163,8 @@ Para correr el programa una vez compilado el código fuente, utilice el siguient
 ```
 
 ## Créditos
-- <p style='text-align: justify'>Diseño y desarrollo por Luis Fernando Gómez Sánchez; Correo: luisfergs24@gmail.com. Año 2021.</p>
-- <p style='text-align: justify'>El módulo de factorización está inspirado en el realizado por John Ortiz Ordoñez, disponible en este <a href="https://github.com/Fhernd/JavaScriptEjercicios/blob/master/Parte001/ex787-factores-primos-unicos-numero-funcion.js">enlace</a>.</p>
+
+<ul style='text-align: justify'>
+<li>Diseño y desarrollo por Luis Fernando Gómez Sánchez; Correo: luisfergs24@gmail.com. Año 2021.</li>
+<li>El módulo de factorización está inspirado en el realizado por John Ortiz Ordoñez, disponible en este <a href="https://github.com/Fhernd/JavaScriptEjercicios/blob/master/Parte001/ex787-factores-primos-unicos-numero-funcion.js">enlace</a>.</li>
+</ul>

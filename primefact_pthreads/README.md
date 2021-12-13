@@ -192,5 +192,5 @@ Para correr el programa una vez compilado el código fuente, utilice el siguient
 
 <ul style='text-align: justify'>
 <li>Diseño y desarrollo por Luis Fernando Gómez Sánchez; Correo: luisfergs24@gmail.com. Año 2021.</li>
-<li>El módulo de factorización de optimización 1 está inspirado en el realizado por John Ortiz Ordoñez, disponible en este <a href="https://github.com/Fhernd/JavaScriptEjercicios/blob/master/Parte001/ex787-factores-primos-unicos-numero-funcion.js">enlace</a>.</li>
+<li>El módulo de factorización está inspirado en el realizado por John Ortiz Ordoñez, disponible en este <a href="https://github.com/Fhernd/JavaScriptEjercicios/blob/master/Parte001/ex787-factores-primos-unicos-numero-funcion.js">enlace</a>.</li>
 </ul>
