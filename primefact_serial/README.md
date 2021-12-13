@@ -1,13 +1,18 @@
 # Factorización Prima de un Número (Serial)
 
 ## Autor
-Estudiante: Luis Fernando Gomez Sanchez.
+Luis Fernando Gómez Sánchez
 
-Correo: luis.gomez20@ucr.ac.cr.
+luisfergs24@gmail.com
 
-Carnet: C03309.
+## Ambientes y Herramientas Utilizados
 
-## Problema a resolver
+<ul>
+  <li>Sistema Operativo: Linux (Debian)</li>
+  <li>Lenguaje: C</li>
+</ul>
+
+## Problema a Resolver
 
 <p style='text-align: justify'>
 El programa recibe de la entrada estándar un conjunto de números enteros que almacenará en memoria para luego calcular su factorización prima. Si la entrada recibe un número negativo, imprime 'invalid number' en la salida estándar; si la entrada recibe un 1 o un 0, imprime 'NA' en la salida estándar; si la entrada recibe un numero entero cualquiera, la salida estandar muestra su factorización prima; si la entrada estándar recibe cualquier otro conjunto de caracteres, la salida imprime un aviso de error. Además, el programa se detiene sin calcular la factorización prima únicamente si no logra almacenar de manera exitosa en memoria el número ingresado, indicando un error de memoria. El método de entrada debe ser de la siguiente forma:
@@ -21,6 +26,7 @@ El programa recibe de la entrada estándar un conjunto de números enteros que a
 378
 1400
 -40
+abcd
 ```
 
 <p style='text-align: justify'>
@@ -28,7 +34,7 @@ Una vez el usuario digita los números a los que desea calcular su factorizació
 </p>
 
 <p style='text-align: justify'>
-Finalmente, el programada imprime en la salida estándar una lista con los números ingresados y su respectiva factorización prima de la siguiente forma:
+Finalmente, el programa imprime en la salida estándar una lista con los números ingresados y su respectiva factorización prima de la siguiente forma:
 </p>
 
 ```bash
@@ -39,6 +45,7 @@ Finalmente, el programada imprime en la salida estándar una lista con los núme
 378: 2 3^3 7
 1400: 2^3 5^2 7
 -40: invalid number
+invalid number
 ```
 
 ## Diseño
@@ -61,7 +68,7 @@ Una vez se corre el comando, se generará la documentación en el directorio /do
 
 ## Manual de Uso
 
-### Compilación sin parámetros
+### Compilación sin Parámetros
 
 <p style='text-align: justify'>
 Para compilar el programa sin especificaciones, utilice el siguiente comando en la línea de comandos:
@@ -117,7 +124,7 @@ make helgrind
 make memcheck
 ```
 
-### Compilar con varias herramientas a la vez
+### Compilar con Varias Herramientas
 
 <p style='text-align: justify'>
 Si desea compilar el programa con las herramientas Cpplint, Memcheck y Helgrind, además de generar la documentación del programa utilice el siguiente comando en la consola:
@@ -127,7 +134,7 @@ Si desea compilar el programa con las herramientas Cpplint, Memcheck y Helgrind,
 make all
 ```
 
-### Reiniciar compilaciones
+### Reiniciar Compilaciones
 
 <p style='text-align: justify'>
 Si desea utilizar otra herramientas para el compilado o desea compilar nuevamente el programa, utilice el siguiente comando antes de volver a compilar:
@@ -137,7 +144,7 @@ Si desea utilizar otra herramientas para el compilado o desea compilar nuevament
 make clean
 ```
 
-### Revisar formato del código
+### Revisar Formato del Código
 
 <p style='text-align: justify'>
 Si desea revisar el formato del código fuente con Cpplint, ingrese el siguiente comando en consola:
@@ -147,16 +154,16 @@ Si desea revisar el formato del código fuente con Cpplint, ingrese el siguiente
 make lint
 ```
 
-### Correr el programa
+### Correr el Programa
 
 <p style='text-align: justify'>
 Para correr el programa una vez compilado el código fuente, utilice el siguiente comando:
 </p>
 
 ```bash
-./build/primefact_serial.o
+./bin/primefact_serial
 ```
 
 ## Créditos
-- <p style='text-align: justify'>Diseño y desarrollo por Luis Fernando Gómez Sánchez; Correo: luis.gomez20@ucr.ac.cr. Año 2021.</p>
+- <p style='text-align: justify'>Diseño y desarrollo por Luis Fernando Gómez Sánchez; Correo: luisfergs24@gmail.com. Año 2021.</p>
 - <p style='text-align: justify'>El módulo de factorización está inspirado en el realizado por John Ortiz Ordoñez, disponible en este <a href="https://github.com/Fhernd/JavaScriptEjercicios/blob/master/Parte001/ex787-factores-primos-unicos-numero-funcion.js">enlace</a>.</p>
