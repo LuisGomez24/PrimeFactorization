@@ -1,0 +1,95 @@
+/*
+ * Tarea Serial
+ * Programación Paralela y Concurrente, Grupo 002
+ * Escuela de Ciencias de la Computación e Informática, UCR
+ * Luis Fernando Gómez Sánchez, C03309
+ */
+
+// Proceso principal
+procedure main(argc, argv[]) do
+  set threadsCount = SYSTEM(CPUs)
+  if (argc > 1) do
+    set threadsCount = argv[1]
+  end if
+  set numberList
+  set lastPosition = 0
+  reader(numberList)
+  set sharedThreads
+  calculateFactors(numberList, threadsCount)
+  printFactorization(numberList, threadsCount)
+end procedure
+
+// Proceso dónde el usuario ingresa números a la lista
+procedure reader(numberList) do
+  set lastPosition = 0
+  set number = 0
+  while(input(number)) do
+    set numberList in lastPosition = number
+    set lastPosition = lastPosition + 1
+  end while
+end procedure
+  
+// Proceso dónde se manda a realizar la factorization para cada número
+procedure calculateFactors(numberList, threadsCount) do
+  #pragma omp parallel for num_threads(threadsCount) \ shared(numberList,
+                           actualNumber, threads), private(number)
+  for (number in numberList) do
+    #pragma omp critical
+      number = actualNumber
+      actualNumber = actualNumber->nextNumber
+
+    factorization(number)
+  end for
+end procedure
+
+// Proceso dónde se factoriza un número dado
+procedure factorization(number) do
+  set positionFactorList = 0
+  if(number > 1)
+    while (number % 2 == 0) do
+      factorsList[positionFactorList++] = 2
+      number /= 2
+    end while
+    set i = 3
+    while (i < sqrt(number)) do
+      if (number % i) do
+        factorsList[positionFactorList++] = i
+        number /= i
+      end if
+      i+=2
+    end while
+    if (number > 2) do
+      factorsList[positionFactorList++] = number
+    end if
+  else if (number == 0 || number == 1) do
+    factorsList[positionFactorList] = 1
+  else do
+    factorsList[positionFactorList] = -1
+  end if
+end procedure
+
+// Proceso donde se mandan a imprimir los factores primos
+procedure printFactorization(numberList, threadsCount) do
+  #pragma omp parallel for num_threads(threadsCount) \ shared(numberList,
+                           actualNumber, threads), private(number)
+    for (number in numberList) do
+      #pragma omp critical
+        number = actualNumber
+        actualNumber = actualNumber->nextNumber
+        printList(number)
+    end for
+end procedure
+
+procedure printList(number) do
+  set condicion = factorsList[0]
+  output(number+": ")
+  if (condition == 1) do
+    output("NA")
+  else do
+    if (condition == -1) do
+      output("invalid number")
+    else do
+      output(factorsList)
+    end if
+  end if
+end procedure

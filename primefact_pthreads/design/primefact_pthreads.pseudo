@@ -1,0 +1,96 @@
+/*
+ * Tarea Serial
+ * Programación Paralela y Concurrente, Grupo 002
+ * Escuela de Ciencias de la Computación e Informática, UCR
+ * Luis Fernando Gómez Sánchez, C03309
+ */
+
+// Proceso principal
+procedure main(argc, argv[]) do
+  set threadsCount = SYSTEM(CPUs)
+  if (argc > 1) do
+    set threadsCount = argv[1]
+  end if
+  set numberList
+  set lastPosition = 0
+  reader(numberList)
+  set sharedThreads
+  calculateFactors(numberList, lastPosition, sharedThreads, threadsCount)
+  printFactorization(numberList, factorsList)
+end procedure
+
+// Proceso dónde el usuario ingresa números a la lista
+procedure reader(numberList) do
+  set lastPosition = 0
+  set number = 0
+  while(input(number)) do
+    set numberList in lastPosition = number
+    set lastPosition = lastPosition + 1
+  end while
+end procedure
+  
+// Proceso dónde se manda a realizar la factorization para cada número
+procedure calculateFactors(numberList, sharedThreads, threadsCount) do
+  set sharedThreads[threadsCount]
+  set lastJoinNumber
+  foreach (number in numberList) do
+    sharedThreads[lastJoinNumber] = createThread(factorization, number, lastJoinNumber)
+    if (threads == threadsCount) do
+      for (set count = 0, threads > cont, count++) do
+        join(sharedThreads[lastJoinNumber])
+        set threads -= 1
+        set += 1;
+      end for
+    end if
+    set threads += 1;
+  end foreach
+end procedure
+
+// Proceso dónde se factoriza un número dado
+procedure factorization(number, indexNumberList) do
+  set positionFactorList = 0
+  if(number > 1)
+    for(set factor = 2, factor <= number, factor++) do
+      while(isPrime(factor) && número mod factor == 0) do
+        factorsList[positionFactorList] = factor
+        number = number / factor
+        positionFactorList = positionFactorList + 1
+      end while
+    end for
+  else if (number == 0 || number == 1) do
+    factorsList[positionFactorList] = 1
+  else do
+    factorsList[positionFactorList] = -1
+  end if
+end procedure
+
+// Proceso donde se mandan a imprimir los factores primos
+procedure printFactorization(numberList, sharedThreads, threadsCount) do
+  set sharedThreads[threadsCount]
+  set lastJoinNumber
+  foreach (number in numberList) do
+    sharedThreads[lastJoinNumber] = createThread(printFactors, number, lastJoinNumber)
+    if (threads == threadsCount) do
+      for (set count = 0, threads > cont, count++) do
+        join(sharedThreads[lastJoinNumber])
+        set threads -= 1
+        set += 1;
+      end for
+    end if
+    set threads += 1;
+  end foreach
+end procedure
+
+procedure print
+  set condicion = factorsList[0]
+  output(number+": ")
+  if (condition == 1) do
+    output("NA")
+  else do
+    if (condition == -1) do
+      output("invalid number")
+    else do
+      output(factorsList)
+    end if
+  end if
+end procedure

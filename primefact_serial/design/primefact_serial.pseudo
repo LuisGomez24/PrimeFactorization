@@ -1,0 +1,69 @@
+/*
+ * Tarea Serial
+ * Programación Paralela y Concurrente, Grupo 002
+ * Escuela de Ciencias de la Computación e Informática, UCR
+ * Luis Fernando Gómez Sánchez, C03309
+ */
+
+// Proceso principal
+procedure main() do
+  set numberList
+  set lastPosition = 0
+  reader(numberList, lastPosition)
+  set factorsList
+  calculateFactors(numberList, lastPosition, factorsList)
+  printFactorization(numberList, factorsList)
+end procedure
+
+// Proceso dónde el usuario ingresa números a la lista
+procedure reader(numberList, lastPosition) do
+  set number = 0
+  while(input(number)) do
+    set numberList in lastPosition = number
+    set lastPosition = lastPosition + 1
+  end while
+end procedure
+  
+// Proceso dónde se manda a realizar la factorization para cada número
+procedure calculateFactors(numberList, factorsList) do
+  set indexNumberList = 0
+  foreach (number in numberList) do
+    factorization(number, factorsList, indexNumberList)
+    indexNumberList = indexNumberList + 1
+  end foreach
+end procedure
+  
+// Proceso dónde se factoriza un número dado
+procedure factorization(number, factorsList, indexNumberList) do
+  set positionFactorList = 0
+  if(number > 1)
+    for(set factor = 2, factor <= number, factor++) do
+      while(isPrime(factor) && número mod factor == 0) do
+        factorsList[positionFactorList] = factor
+        number = number / factor
+        positionFactorList = positionFactorList + 1
+      end while
+    end for
+  else if (number == 0 || number == 1) do
+    factorsList[positionFactorList] = 1
+  else do
+    factorsList[positionFactorList] = -1
+  end if
+end procedure
+
+// Proceso donde se mandan a imprimir los factores primos
+procedure printFactorization(numberList, factorsList, lastPosition) do
+  foreach(number in numberList) do
+    set condicion = factorsList[0]
+    output(number+": ")
+    if (condition == 1) do
+      output("NA")
+    else do
+      if (condition == -1) do
+        output("invalid number")
+      else do
+        output(factorsList)
+      end if
+    end if
+  end foreach
+end procedure
